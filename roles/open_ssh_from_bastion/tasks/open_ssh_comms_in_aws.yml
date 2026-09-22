@@ -68,7 +68,7 @@
     - name: Get filtered list of Bastion route tables
       amazon.aws.ec2_vpc_route_table_info:
         filters:
-          "tag:env_type": ocp4-cluster
+          "tag:config": "openshift-cluster"
           association.main: false
           vpc-id: "{{ r_bastion_vpc.vpcs[0].vpc_id }}"
       register: r_bastion_filtered_routes
@@ -82,7 +82,7 @@
     - name: Get filtered list of Cluster route tables
       amazon.aws.ec2_vpc_route_table_info:
         filters:
-          "tag:env_type": ocp4-cluster
+          "tag:config": "openshift-cluster"
           "tag:Name": "*private*"
           association.main: false
           vpc-id: "{{ r_cluster_vpc.vpcs[0].vpc_id }}"

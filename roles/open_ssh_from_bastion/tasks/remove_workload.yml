@@ -5,7 +5,7 @@
 
 - name: Remove SSH ACCESS workload
   when:
-    - cloud_provider == 'ec2'
+    - cloud_provider == 'aws'
     - ocp4_workload_open_ssh_from_bastion_enable | bool
   module_defaults:
     group/aws:
